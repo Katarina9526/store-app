@@ -13,7 +13,7 @@ const Home: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = (props)
 		initialData: props.products,
 	});
 
-	const euroFormat = new Intl.NumberFormat(navigator.language, {
+	const euroFormat = new Intl.NumberFormat('de-DE', {
 		style: 'currency',
 		currency: 'EUR',
 	});
@@ -24,7 +24,7 @@ const Home: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = (props)
 				{products.map((product) => (
 					<Grid key={product.id} item xs={12} sm={6} md={4} lg={3}>
 						<Card component="article">
-							<CardActionArea LinkComponent={NextLink} href={`/${product.id}`}>
+							<CardActionArea LinkComponent={NextLink} href={`/products/${product.id}`}>
 								<CardMedia image={product.image} title={product.title} />
 								<CardContent>
 									<Typography component="h3" variant="h5" gutterBottom>
