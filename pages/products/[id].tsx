@@ -2,10 +2,9 @@ import { getProductById } from '@/queries/products';
 import { Product } from '@/types/product';
 import { Box } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
-import { FC } from 'react';
+import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next';
 
-const ProductPage: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = (props) => {
+const ProductPage: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (props) => {
 	const { data: product } = useQuery({
 		queryKey: ['products', props.product.id],
 		queryFn: () => getProductById(props.product.id),

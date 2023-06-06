@@ -6,6 +6,7 @@ export const mainTheme = createTheme({
 			styleOverrides: {
 				root: {
 					height: '100%',
+					borderRadius: '12px',
 				},
 			},
 		},
@@ -19,7 +20,9 @@ export const mainTheme = createTheme({
 		MuiCardMedia: {
 			styleOverrides: {
 				root: {
-					height: '140px',
+					height: '240px',
+					backgroundSize: 'contain',
+					margin: '8px',
 				},
 			},
 		},
