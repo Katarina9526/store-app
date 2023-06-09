@@ -1,21 +1,16 @@
+import { euroFormat } from '@/consts/currencyFormats';
 import { getProducts } from '@/queries/products';
 import { Product } from '@/types/product';
 import { Box, Grid, Card, CardActionArea, CardMedia, CardContent, Typography, Rating } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next';
 import NextLink from 'next/link';
-import { FC } from 'react';
 
-const Home: FC<InferGetServerSidePropsType<typeof getServerSideProps>> = (props) => {
+const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (props) => {
 	const { data: products } = useQuery({
 		queryKey: ['products'],
 		queryFn: getProducts,
 		initialData: props.products,
-	});
-
-	const euroFormat = new Intl.NumberFormat('de-DE', {
-		style: 'currency',
-		currency: 'EUR',
 	});
 
 	return (
