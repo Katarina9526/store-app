@@ -2,7 +2,8 @@ import { euroFormat } from '@/consts/currencyFormats';
 import { titleSuffix } from '@/consts/meta';
 import { getProductById } from '@/queries/products';
 import { Product } from '@/types/product';
-import { Box, Card, CardContent, CardMedia, Grid, Rating, Typography } from '@mui/material';
+import { Box, Card, CardContent, CardMedia, Grid, Rating, Typography, Button } from '@mui/material';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { useQuery } from '@tanstack/react-query';
 import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next';
 import Head from 'next/head';
@@ -42,10 +43,14 @@ const ProductPage: NextPage<InferGetServerSidePropsType<typeof getServerSideProp
 								<Typography component="strong" fontWeight="bold">
 									{euroFormat.format(product.price)}
 								</Typography>
-								<Box display="flex" gap="8px">
+								<Box display="flex" gap="8px" mb="16px">
 									<Rating value={product.rating.rate} precision={0.5} readOnly />
 									<Typography>({product.rating.count})</Typography>
 								</Box>
+
+								<Button variant="contained" endIcon={<AddShoppingCartIcon />}>
+									Add to cart
+								</Button>
 							</Grid>
 						</Grid>
 					</CardContent>
