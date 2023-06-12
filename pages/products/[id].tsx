@@ -7,6 +7,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import { useQuery } from '@tanstack/react-query';
 import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next';
 import Head from 'next/head';
+import MainLayout from '@/layouts/mainLayout';
 
 const ProductPage: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (props) => {
 	const { data: product } = useQuery({
@@ -16,7 +17,7 @@ const ProductPage: NextPage<InferGetServerSidePropsType<typeof getServerSideProp
 	});
 
 	return (
-		<>
+		<MainLayout>
 			<Head>
 				<title>
 					{product.title}
@@ -33,6 +34,7 @@ const ProductPage: NextPage<InferGetServerSidePropsType<typeof getServerSideProp
 							<Grid item xs={12} md={6}>
 								<CardMedia image={product.image} title={product.title} />
 							</Grid>
+
 							<Grid item xs={12} md={6}>
 								<Typography component="h1" variant="h4" gutterBottom>
 									{product.title}
@@ -56,7 +58,7 @@ const ProductPage: NextPage<InferGetServerSidePropsType<typeof getServerSideProp
 					</CardContent>
 				</Card>
 			</Box>
-		</>
+		</MainLayout>
 	);
 };
 

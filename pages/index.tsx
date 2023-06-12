@@ -1,5 +1,6 @@
 import { euroFormat } from '@/consts/currencyFormats';
 import { homeDescription, homeTitle, titleSuffix } from '@/consts/meta';
+import MainLayout from '@/layouts/mainLayout';
 import { getProducts } from '@/queries/products';
 import { Product } from '@/types/product';
 import { Box, Grid, Card, CardActionArea, CardMedia, CardContent, Typography, Rating } from '@mui/material';
@@ -16,7 +17,7 @@ const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
 	});
 
 	return (
-		<>
+		<MainLayout>
 			<Head>
 				<title>
 					{homeTitle}
@@ -61,7 +62,7 @@ const Home: NextPage<InferGetServerSidePropsType<typeof getServerSideProps>> = (
 					))}
 				</Grid>
 			</Box>
-		</>
+		</MainLayout>
 	);
 };
 
