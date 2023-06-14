@@ -26,5 +26,12 @@ export const mainTheme = createTheme({
 				},
 			},
 		},
+		MuiToolbar: {
+			styleOverrides: {
+				root: {
+					justifyContent: 'space-between',
+				},
+			},
+		},
 	},
 });
